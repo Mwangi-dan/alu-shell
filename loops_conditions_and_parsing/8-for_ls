@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#code to display files in list form after omitting characters before -
+
+for i in *
+do
+		cut -c -*
+done

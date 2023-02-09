@@ -10,6 +10,8 @@ do
 		else
 			echo "Fizz"
 		fi
+	elif [ $((i%5)) == 0 ]; then
+		echo "Buzz"
 	else
 		echo $i
 	fi

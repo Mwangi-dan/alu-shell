@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#script to kill infinity and beyond program
+
+kill 4556

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Script stops infinity process without kill command
 
-
+pkill -f 'infinity'

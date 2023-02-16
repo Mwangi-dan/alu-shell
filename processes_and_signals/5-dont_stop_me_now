@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #script to kill infinity and beyond program
 
-kill "$(pgrep infinity | grep -v grep | awk '{print $2}')"
+kill "$(ps -aux | pgrep infinity | grep -v grep | awk '{print $2}')"

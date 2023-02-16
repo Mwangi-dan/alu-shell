@@ -3,6 +3,6 @@
 
 while :
 do
-	echo "To Infinity and Beyond:
+	echo "To Infinity and Beyond"
 	sleep 2
 done

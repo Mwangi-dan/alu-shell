@@ -6,7 +6,6 @@
 function handle_signal() {
 	case $1 in
 		SIGQUIT)
-			echo "Received signal: $1. Deleting PID file and existing"
 			rm -f /var/run/myscript.pid
 			exit 0
 			;;

@@ -3,27 +3,17 @@
 #displays infinity and beyond indefinitely
 #diplays a text when receiving a SIGTERM and SIGINT signal
 #terminates when it rereceives a SIGTERM or SITERM signal
-function handle_signal() {
-	case $1 in
-		SIGQUIT)
-			rm -f /var/run/myscript.pid
-			exit 0
-			;;
-		SIGINT)
-			echo "Y U no love me?!"
-			;;
-		SIGTERM)
-			echo "I hate the kill command"
-			;;
-		esac
-	}
-echo $$ > /var/run/myscript.pid
+terminator(){
+	rm /var/run/myscript.pid
+	exit
+}
+echo "$$" > /var/run/myscript.pid
 
-trap 'handle_signal_SIGTERM' SIGTERM SIGQUIT
-trap 'handle_signal_SIGINT' SIGINT
-
-while true; 
+while true
 do
 	echo "To infinity and beyond"
 	sleep 2
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'echo "I hate the kill command" && terminator' SIGTERM
+	trap 'terminator' SIGQUIT 
 done

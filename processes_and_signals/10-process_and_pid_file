@@ -1,7 +1,30 @@
-#!/usr/bin/bash
+#!/in/bash
 #script creates a file containing its PID 
 #displays infinity and beyond indefinitely
 #diplays a text when receiving a SIGTERM and SIGINT signal
 #terminates when it rereceives a SIGTERM or SITERM signal
+function handle_signal() {
+	case $1 in
+		SIGQUIT)
+			echo "Received signal: $1. Deleting PID file and existing"
+			rm -f /var/run/myscript.pid
+			exit 0
+			;;
+		SIGINT)
+			echo "Y U no love me?!"
+			;;
+		SIGTERM)
+			echo "I hate the kill command"
+			;;
+		esac
+	}
+echo $$ > /var/run/myscript.pid
 
+trap 'handle_signal_SIGTERM' SIGTERM SIGQUIT
+trap 'handle_signal_SIGINT' SIGINT
 
+while true; 
+do
+	echo "To infinity and beyond"
+	sleep 2
+done

@@ -1,4 +1,4 @@
-#!/in/bash
+#!/usr/bin/env bash
 #script creates a file containing its PID 
 #displays infinity and beyond indefinitely
 #diplays a text when receiving a SIGTERM and SIGINT signal
